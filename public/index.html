@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OptimalPixel - AI Photo Enhancement</title>
+<style>
+:root {
+  --bg:#080d19;
+  --panel:#111a2d;
+  --purple:#8058f5;
+  --cyan:#37d5e9;
+  --white:#f7f8ff;
+  --muted:#9ba8bf;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+}
+header{
+  height:76px;padding:0 7%;display:flex;
+  justify-content:space-between;align-items:center;
+  border-bottom:1px solid #253047;
+  position:sticky;top:0;background:#080d19ed;
+  z-index:10;
+}
+.logo{font-size:23px;font-weight:800}
+.logo span{color:var(--purple)}
+nav{display:flex;gap:24px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:14px}
+button,.btn{
+  border:0;border-radius:10px;padding:13px 20px;
+  background:var(--purple);color:white;
+  font-weight:700;cursor:pointer;text-decoration:none;
+}
+button:hover,.btn:hover{opacity:.85}
+select{
+  background:var(--panel);color:white;
+  border:1px solid #34415b;padding:10px;border-radius:8px;
+}
+.hero{
+  padding:95px 7% 70px;text-align:center;
+  background:radial-gradient(ellipse at 50% 0%,#38266a 0%,#080d19 65%);
+}
+.tag{
+  color:#c2aaff;background:#271c49;
+  padding:8px 14px;border-radius:30px;font-size:12px;
+}
+h1{font-size:clamp(38px,6vw,68px);margin:30px 0 15px;line-height:1.1}
+h1 span{color:#a88bff}
+.hero p{color:var(--muted);font-size:18px;max-width:650px;margin:0 auto 30px;line-height:1.7}
+section{padding:70px 7%}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:34px;margin-bottom:10px}
+.section-title p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--panel);border:1px solid #26334d;
+  border-radius:16px;padding:25px;
+}
+.card h3{margin:12px 0}
+.card p{color:var(--muted);line-height:1.6;font-size:14px}
+.service-icon{font-size:34px}
+.upload-area{
+  border:2px dashed #6550a7;border-radius:18px;
+  padding:35px 20px;text-align:center;background:#111329;
+}
+.upload-area input{display:none}
+.upload-area label{cursor:pointer}
+#preview{max-width:100%;max-height:300px;border-radius:12px;margin-top:20px;display:none}
+#status{color:var(--cyan);margin-top:15px}
+#service{margin:20px 0;width:100%;max-width:400px}
+.pricing{border:1px solid #34415b}
+.price{font-size:34px;font-weight:800;margin:20px 0}
+.price span{font-size:13px;color:var(--muted)}
+ul{padding-left:20px;color:var(--muted);line-height:2}
+.featured{border-color:var(--purple);box-shadow:0 0 30px #8058f522}
+footer{padding:35px 7%;border-top:1px solid #26334d;color:var(--muted);text-align:center}
+@media(max-width:750px){
+  nav a{display:none}
+  .grid{grid-template-columns:1fr}
+  section{padding:55px 6%}
+  header{padding:0 5%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Optimal<span>Pixel</span> ✦</div>
+  <nav>
+    <a href="#services" data-fr="Services" data-en="Services">Services</a>
+    <a href="#editor" data-fr="Améliorer une photo" data-en="Enhance a photo">Améliorer une photo</a>
+    <a href="#pricing" data-fr="Tarifs" data-en="Pricing">Tarifs</a>
+    <select id="language" aria-label="Language">
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
+    </select>
+    <a class="btn" href="#editor" data-fr="Commencer" data-en="Get started">Commencer</a>
+  </nav>
+</header>
+
+<main>
+<div class="hero">
+  <span class="tag">✦ ARTIFICIAL INTELLIGENCE PHOTO STUDIO</span>
+  <h1 data-fr="Vos photos, en version <span>extraordinaire.</span>"
+       data-en="Your photos, <span>reimagined.</span>">
+    Vos photos, en version <span>extraordinaire.</span>
+  </h1>
+  <p data-fr="Améliorez vos photos, retouchez vos portraits et supprimez les arrière-plans en quelques clics grâce à l'intelligence artificielle."
+     data-en="Enhance photos, retouch portraits and remove backgrounds in just a few clicks with artificial intelligence.">
+    Améliorez vos photos, retouchez vos portraits et supprimez les arrière-plans en quelques clics grâce à l'intelligence artificielle.
+  </p>
+  <a class="btn" href="#editor" data-fr="Améliorer ma photo →" data-en="Enhance my photo →">Améliorer ma photo →</a>
+</div>
+
+<section id="services">
+  <div class="section-title">
+    <h2 data-fr="Nos services" data-en="Our services">Nos services</h2>
+    <p data-fr="Des outils intelligents pour des images exceptionnelles."
+       data-en="Smart tools for exceptional images.">Des outils intelligents pour des images exceptionnelles.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="service-icon">✨</div>
+      <h3 data-fr="Amélioration photo" data-en="Photo enhancement">Amélioration photo</h3>
+      <p data-fr="Améliorez la netteté, la résolution, la luminosité et les couleurs."
+         data-en="Improve sharpness, resolution, brightness and colors.">Améliorez la netteté, la résolution, la luminosité et les couleurs.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">👤</div>
+      <h3 data-fr="Retouche de visages" data-en="Portrait retouching">Retouche de visages</h3>
+      <p data-fr="Sublimez vos portraits avec une retouche naturelle."
+         data-en="Enhance your portraits with natural retouching.">Sublimez vos portraits avec une retouche naturelle.</p>
+    </div>
+    <div class="card">
+      <div class="service-icon">🪄</div>
+      <h3 data-fr="Suppression du fond" data-en="Background removal">Suppression du fond</h3>
+      <p data-fr="Supprimez l'arrière-plan pour obtenir une image transparente."
+         data-en="Remove backgrounds to create transparent images.">Supprimez l'arrière-plan pour obtenir une image transparente.</p>
+    </div>
+  </div>
+</section>
+
+<section id="editor">
+  <div class="section-title">
+    <h2 data-fr="Essayez OptimalPixel" data-en="Try OptimalPixel">Essayez OptimalPixel</h2>
+    <p data-fr="Importez une photo pour préparer votre traitement."
+       data-en="Upload a photo to prepare your edit.">Importez une photo pour préparer votre traitement.</p>
+  </div>
+  <div class="upload-area">
+    <label for="photo">
+      <div style="font-size:45px">📸</div>
+      <h3 data-fr="Importez votre photo" data-en="Upload your photo">Importez votre photo</h3>
+      <p data-fr="Cliquez pour choisir une image JPG, PNG ou WEBP."
+         data-en="Click to choose a JPG, PNG or WEBP image.">Cliquez pour choisir une image JPG, PNG ou WEBP.</p>
+      <span class="btn" data-fr="Choisir une image" data-en="Choose an image">Choisir une image</span>
+    </label>
+    <input type="file" id="photo" accept="image/jpeg,image/png,image/webp">
+    <img id="preview" alt="Aperçu de la photo sélectionnée">
+    <div>
+      <select id="service">
+        <option value="enhance">Amélioration photo</option>
+        <option value="portrait">Retouche de visage</option>
+        <option value="background">Suppression du fond</option>
+      </select>
+    </div>
+    <button id="process" data-fr="Préparer ma commande →" data-en="Prepare my order →">Préparer ma commande →</button>
+    <div id="status" aria-live="polite"></div>
+  </div><div id="result-container" style="display:none; margin-top:25px;">
+    <h3>Votre photo améliorée</h3>
+    <img id="result" style="max-width:100%;max-height:350px;border-radius:12px;">
+    <br><br>
+    <a id="download" class="btn" download="optimalpixel-result.png">
+        Télécharger ma photo
+    </a>
+</div>
+</section>
+
+<section id="pricing">
+  <div class="section-title">
+    <h2 data-fr="Nos forfaits" data-en="Our plans">Nos forfaits</h2>
+    <p data-fr="Choisissez les crédits adaptés à vos besoins."
+       data-en="Choose the credits that suit your needs.">Choisissez les crédits adaptés à vos besoins.</p>
+  </div>
+  <div class="grid">
+    <div class="card pricing">
+      <h3>Starter</h3>
+      <div class="price">2,99 €</div>
+      <p>10 crédits</p>
+      <ul><li>Accès aux services</li><li>Téléchargement des résultats</li></ul>
+      <button onclick="choosePlan('Starter')">Choisir</button>
+    </div>
+    <div class="card pricing featured">
+      <h3>Standard ⭐</h3>
+      <div class="price">5,99 €</div>
+      <p>25 crédits</p>
+      <ul><li>Tous les services</li><li>25 crédits</li><li>Support client</li></ul>
+      <button onclick="choosePlan('Standard')">Choisir</button>
+    </div>
+    <div class="card pricing">
+      <h3>Premium</h3>
+      <div class="price">11,99 €</div>
+      <p>60 crédits</p>
+      <ul><li>Tous les services</li><li>60 crédits</li><li>Support prioritaire</li></ul>
+      <button onclick="choosePlan('Premium')">Choisir</button>
+    </div>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:12px">
+    Tarifs indicatifs. Paiements et crédits à connecter avant la commercialisation.
+  </p>
+</section>
+</main>
+
+<footer>
+  <div class="logo">Optimal<span>Pixel</span> ✦</div>
+  <p>© 2026 OptimalPixel. All rights reserved.</p>
+  <p>Privacy · Terms · Contact</p>
+</footer>
+
+<script>
+const photo = document.getElementById('photo');
+const preview = document.getElementById('preview');
+const status = document.getElementById('status');
+const process = document.getElementById('process');
+
+photo.addEventListener('change', () => {
+  const file = photo.files[0];
+  if (!file) return;
+  if (!['image/jpeg','image/png','image/webp'].includes(file.type)) {
+    status.textContent = "Format non accepté.";
+    photo.value = "";
+    return;
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    status.textContent = "Image trop volumineuse (maximum 10 Mo).";
+    photo.value = "";
+    return;
+  }
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = 'inline-block';
+  status.textContent = "Photo sélectionnée avec succès.";
+});
+
+process.addEventListener('click', async () => {
+    const file = photo.files[0];
+
+    if (!file) {
+        status.textContent = "Veuillez d'abord sélectionner une photo.";
+        return;
+    }
+
+    process.disabled = true;
+    process.textContent = "Traitement en cours...";
+
+    const formData = new FormData();
+    formData.append("photo", file);
+
+    try {
+        const response = await fetch("/api/enhance", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Erreur de traitement");
+        }
+
+        document.getElementById("result").src = data.imageUrl;
+        document.getElementById("download").href = data.imageUrl;
+        document.getElementById("result-container").style.display = "block";
+
+        status.textContent = "Photo améliorée avec succès !";
+
+    } catch (error) {
+        status.textContent = "Erreur : " + error.message;
+    } finally {
+        process.disabled = false;
+        process.textContent = "Préparer ma commande →";
+    }
+});
+
+function choosePlan(plan) {
+  status.textContent = "Forfait " + plan + " sélectionné. Le paiement sera activé lors de l'intégration.";
+  document.getElementById('editor').scrollIntoView({behavior:'smooth'});
+}
+
+document.getElementById('language').addEventListener('change', e => {
+  const lang = e.target.value;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
+});
+</script>
+</body>
+</html>
+
